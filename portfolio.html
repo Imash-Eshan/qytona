@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Qytona | Shaping Your Digital Tomorrow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .portfolio-image-full {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .image-placeholder-large {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 33, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item-full:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item-full:hover .image-placeholder-large {
+            opacity: 1;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            object-fit: contain;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    border-radius: 50px;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-text {
+    white-space: nowrap;
+}
+
+.whatsapp-float:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    color: white;
+}
+
+/* Hide text on mobile, show only icon */
+@media (max-width: 768px) {
+    .whatsapp-text {
+        display: none;
+    }
+    .whatsapp-float {
+        padding: 15px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Animation for attention */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.whatsapp-float {
+    animation: pulse 2s infinite;
+}
+
+/* Facebook Float Button */
+.facebook-float {
+    position: fixed;
+    bottom: 90px; /* Position above WhatsApp button */
+    right: 25px;
+    background: #1877F2;
+    color: white;
+    border-radius: 50px;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(24, 119, 242, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.facebook-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.facebook-text {
+    white-space: nowrap;
+}
+
+.facebook-float:hover {
+    background: #166FE5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(24, 119, 242, 0.4);
+    color: white;
+}
+
+/* Hide text on mobile, show only icon */
+@media (max-width: 768px) {
+    .facebook-text {
+        display: none;
+    }
+    .facebook-float {
+        padding: 15px;
+        bottom: 80px; /* Adjust for mobile */
+        right: 20px;
+    }
+}
+
+/* Animation for attention */
+.facebook-float {
+    animation: pulse 2s infinite 0.5s; /* Staggered animation */
+}
+
+/* Stacked layout */
+.whatsapp-float {
+    bottom: 25px;
+    right: 25px;
+}
+
+.facebook-float {
+    bottom: 90px; /* 65px gap between buttons */
+    right: 25px;
+}
+
+/* Mobile stacked layout */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .facebook-float {
+        bottom: 80px; /* 60px gap on mobile */
+        right: 20px;
+    }
+}
+    </style>
+
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="particles-container" id="particles-js"></div>
+        <div class="light-beam"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <div class="logo-container">
+                        <img src="images/logo/logo.png" alt="Qytona Logo" class="logo-image">
+                        <span class="logo-text">QYTONA</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </div>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </div>
+                <div class="nav-item">
+                    <a href="portfolio.html" class="nav-link active">Portfolio</a>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Our Portfolio</h1>
+            <p class="page-subtitle">Showcasing our latest digital creations</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <!-- <section class="portfolio-filter">
+    <div class="container">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="design">UI/UX Design</button>
+            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+        </div>
+    </div>
+</section> -->
+
+    <!-- Portfolio Grid -->
+
+
+    <section class="portfolio-full">
+        <div class="container">
+            <div class="portfolio-grid-full">
+                <div class="portfolio-item-full" data-category="web ecommerce">
+                    <div class="portfolio-image-full">
+                        <div class="image-container">
+                            <img src="images/portfolio/watermay.png" alt="mali" class="portfolio-image">
+                            <div class="image-placeholder-large">
+                                <i class="fas fa-globe" style="font-size: 3rem;"></i>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay-full">
+                            <h3 class="portfolio-title-full">Mai Care Water </h3>
+                            <p class="portfolio-category-full">Web Application</p>
+                            <p class="portfolio-description">
+                                Delivers high-quality water filtration systems for homes and businesses in the UAE.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Spring Boot</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Angular</span>
+                                <span class="tech-tag">TypeScript</span>
+                            </div>
+                            <!-- <a href="#" class="btn btn-outline">View Case Study</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item-full" data-category="web ecommerce">
+                    <div class="portfolio-image-full">
+                        <div class="image-container">
+                            <img src="images/portfolio/translanka.jpg" alt="Trans Lanka Travels"
+                                class="portfolio-image">
+                            <div class="image-placeholder-large">
+                                <i class="fas fa-globe" style="font-size: 3rem;"></i>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay-full">
+                            <h3 class="portfolio-title-full">Trans Lanka Travels</h3>
+                            <p class="portfolio-category-full">Web Application</p>
+                            <p class="portfolio-description">A platform that lets tourists book rides and explore
+                                destinations across Sri Lanka.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Javascript</span>
+                                <span class="tech-tag">Bootsrap</span>
+                                <span class="tech-tag">JQuery</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                            <!-- <a href="#" class="btn btn-outline">View Case Study</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item-full" data-category="web ecommerce">
+                    <div class="portfolio-image-full">
+                        <div class="image-container">
+                            <img src="images/portfolio/mali.png" alt="Mali Tours" class="portfolio-image">
+                            <div class="image-placeholder-large">
+                                <i class="fas fa-globe" style="font-size: 3rem;"></i>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay-full">
+                            <h3 class="portfolio-title-full">Mali Tours</h3>
+                            <p class="portfolio-category-full">Web Application</p>
+                            <p class="portfolio-description">A platform that lets tourists book rides and explore
+                                destinations across Sri Lanka.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Javascript</span>
+                                <span class="tech-tag">Bootsrap</span>
+                                <span class="tech-tag">JQuery</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                            <!-- <a href="#" class="btn btn-outline">View Case Study</a> -->
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!--                <div class="portfolio-item-full" data-category="design branding">-->
+                <!--                    <div class="portfolio-image-full">-->
+                <!--                        <div class="image-placeholder-large"></div>-->
+                <!--                        <div class="portfolio-overlay-full">-->
+                <!--                            <h3 class="portfolio-title-full">Aura Design Studio</h3>-->
+                <!--                            <p class="portfolio-category-full">UI/UX Design • Branding</p>-->
+                <!--                            <p class="portfolio-description">Complete brand identity and website redesign for a creative design agency.</p>-->
+                <!--                            <div class="portfolio-tech">-->
+                <!--                                <span class="tech-tag">Figma</span>-->
+                <!--                                <span class="tech-tag">Adobe Creative Suite</span>-->
+                <!--                                <span class="tech-tag">Webflow</span>-->
+                <!--                            </div>-->
+                <!--                            &lt;!&ndash; <a href="#" class="btn btn-outline">View Case Study</a> &ndash;&gt;-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+                <!-- <div class="portfolio-item-full" data-category="web ecommerce">
+                <div class="portfolio-image-full">
+                    <div class="image-placeholder-large"></div>
+                    <div class="portfolio-overlay-full">
+                        <h3 class="portfolio-title-full">TechSphere E-commerce</h3>
+                        <p class="portfolio-category-full">E-commerce • Web Development</p>
+                        <p class="portfolio-description">Custom e-commerce solution with advanced inventory management
+                            and analytics.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Case Study</a>
+                    </div>
+                </div>
+            </div> -->
+
+                <!--            <div class="portfolio-item-full" data-category="design web">-->
+                <!--                <div class="portfolio-image-full">-->
+                <!--                    <div class="image-placeholder-large"></div>-->
+                <!--                    <div class="portfolio-overlay-full">-->
+                <!--                        <h3 class="portfolio-title-full">HealthTrack Mobile App</h3>-->
+                <!--                        <p class="portfolio-category-full">UI/UX Design • Web Development</p>-->
+                <!--                        <p class="portfolio-description">Health and fitness tracking application with personalized-->
+                <!--                            workout plans.</p>-->
+                <!--                        <div class="portfolio-tech">-->
+                <!--                            <span class="tech-tag">React Native</span>-->
+                <!--                            <span class="tech-tag">Firebase</span>-->
+                <!--                            <span class="tech-tag">Figma</span>-->
+                <!--                        </div>-->
+                <!--                        &lt;!&ndash; <a href="#" class="btn btn-outline">View Case Study</a> &ndash;&gt;-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--            </div>-->
+
+                <!--            <div class="portfolio-item-full" data-category="branding design">-->
+                <!--                <div class="portfolio-image-full">-->
+                <!--                    <div class="image-placeholder-large"></div>-->
+                <!--                    <div class="portfolio-overlay-full">-->
+                <!--                        <h3 class="portfolio-title-full">UrbanBite Restaurant</h3>-->
+                <!--                        <p class="portfolio-category-full">Branding • UI/UX Design</p>-->
+                <!--                        <p class="portfolio-description">Complete brand identity and online ordering system for a modern-->
+                <!--                            restaurant chain.</p>-->
+                <!--                        <div class="portfolio-tech">-->
+                <!--                            <span class="tech-tag">Brand Strategy</span>-->
+                <!--                            <span class="tech-tag">Web Design</span>-->
+                <!--                            <span class="tech-tag">Ordering System</span>-->
+                <!--                        </div>-->
+                <!--                        &lt;!&ndash; <a href="#" class="btn btn-outline">View Case Study</a> &ndash;&gt;-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--            </div>-->
+
+                <!--            <div class="portfolio-item-full" data-category="web">-->
+                <!--                <div class="portfolio-image-full">-->
+                <!--                    <div class="image-placeholder-large"></div>-->
+                <!--                    <div class="portfolio-overlay-full">-->
+                <!--                        <h3 class="portfolio-title-full">DataViz Analytics Dashboard</h3>-->
+                <!--                        <p class="portfolio-category-full">Web Development</p>-->
+                <!--                        <p class="portfolio-description">Interactive data visualization dashboard for business-->
+                <!--                            intelligence and analytics.</p>-->
+                <!--                        <div class="portfolio-tech">-->
+                <!--                            <span class="tech-tag">D3.js</span>-->
+                <!--                            <span class="tech-tag">Python</span>-->
+                <!--                            <span class="tech-tag">PostgreSQL</span>-->
+                <!--                        </div>-->
+                <!--                        &lt;!&ndash; <a href="#" class="btn btn-outline">View Case Study</a> &ndash;&gt;-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--            </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <!-- <section class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title">Client Testimonials</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">"Qytona transformed our online presence completely. Their attention to
+                        detail and technical expertise exceeded our expectations."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image"></div>
+                    <div class="author-info">
+                        <h4 class="author-name">Jennifer Martinez</h4>
+                        <p class="author-company">CEO, Nexus Financial</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">"Working with Qytona was a game-changer for our business. They delivered
+                        a stunning website that perfectly captures our brand."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image"></div>
+                    <div class="author-info">
+                        <h4 class="author-name">David Kim</h4>
+                        <p class="author-company">Founder, Aura Design Studio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Have a Project in Mind?</h2>
+                <p class="cta-description">Let's create something amazing together.</p>
+                <a href="contact.html" class="btn btn-primary btn-large">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-container">
+                        <div class="logo-icon">Q</div>
+                        <span class="logo-text">QYTONA</span>
+                    </div>
+                    <p class="footer-slogan">Shaping Your Digital Tomorrow</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">tw</a>
+                        <a href="#" class="social-link">fb</a>
+                        <a href="#" class="social-link">ig</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Explore</h3>
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                        <a href="portfolio.html" class="footer-link">Portfolio</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Services</h3>
+                        <a href="services.html" class="footer-link">Web Development</a>
+                        <!-- <a href="services.html" class="footer-link">UI/UX Design</a> -->
+                        <a href="services.html" class="footer-link">Digital Marketing</a>
+                        <a href="services.html" class="footer-link">E-commerce</a>
+                        <a href="services.html" class="footer-link">Brand Strategy</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Contact</h3>
+                        <p class="footer-contact">contact@qytona.com</p>
+                        <p class="footer-contact">+94 70 421 9008</p>
+                        <!-- <p class="footer-contact">Digital Avenue, Tech City</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 Qytona. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+        <!-- WhatsApp Float Button -->
+<a href="https://wa.me/+94704219008" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <div class="whatsapp-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.26-6.189-3.548-8.452"/>
+        </svg>
+    </div>
+    <span class="whatsapp-text">Chat with us</span>
+</a>
+
+<!-- Facebook Float Button -->
+<a href="https://www.facebook.com/share/1DbFM9kfrv/" class="facebook-float" target="_blank" rel="noopener noreferrer">
+    <div class="facebook-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+    </div>
+    <span class="facebook-text">Follow us</span>
+</a>
+    <script src="js/main.js"></script>
+    <script>
+        // Portfolio filtering
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item-full');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category').includes(filterValue)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

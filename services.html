@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    <title>Services - Qytona | Shaping Your Digital Tomorrow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Performance-Optimized Enhanced Services Cards */
+        .services-detailed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+            padding: 80px 0;
+        }
+
+        .service-detailed-card {
+            background: linear-gradient(135deg, rgba(46, 67, 81, 0.4) 0%, rgba(15, 23, 33, 0.7) 100%);
+            padding: 40px 30px;
+            border-radius: 14px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        .service-detailed-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            border-color: rgba(240, 54, 30, 0.4);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .service-icon {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin-right: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(240, 54, 30, 0.1);
+            border-radius: 50%;
+            border: 2px solid rgba(240, 54, 30, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .service-detailed-card:hover .service-icon::before {
+            background: rgba(240, 54, 30, 0.15);
+            border-color: rgba(240, 54, 30, 0.5);
+            box-shadow: 0 0 20px rgba(240, 54, 30, 0.25);
+            transform: scale(1.03);
+        }
+
+        .icon-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--primary-accent);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .service-detailed-card:hover .icon-text {
+            color: var(--primary-light);
+        }
+
+        .service-title {
+            font-size: 1.7rem;
+            margin: 0;
+            color: var(--primary-light);
+            background: linear-gradient(45deg, var(--primary-light), var(--primary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            min-height: 70px;
+            font-weight: 600;
+        }
+
+        .service-detailed-card:hover .service-title {
+            background: linear-gradient(45deg, var(--primary-accent), #ff6b4a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.65;
+            font-size: 1.05rem;
+            margin-bottom: 22px;
+            transition: color 0.3s ease;
+            padding-left: 12px;
+            border-left: 2px solid rgba(240, 54, 30, 0.2);
+        }
+
+        .service-detailed-card:hover .service-description {
+            color: rgba(255, 255, 255, 0.9);
+            border-left-color: rgba(240, 54, 30, 0.4);
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 25px 0;
+            padding: 0;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 26px;
+            transition: color 0.25s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li::before {
+            content: '▸';
+            color: var(--primary-accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            transition: color 0.25s ease;
+        }
+
+        .service-detailed-card:hover .service-features li {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .service-detailed-card:hover .service-features li::before {
+            color: var(--primary-light);
+        }
+
+        .service-tech {
+            margin: 25px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: rgba(240, 54, 30, 0.12);
+            color: var(--primary-accent);
+            padding: 7px 14px;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(240, 54, 30, 0.25);
+            transition: all 0.25s ease;
+        }
+
+        .service-detailed-card:hover .tech-tag {
+            background: rgba(240, 54, 30, 0.2);
+            color: var(--primary-light);
+            border-color: rgba(240, 54, 30, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .service-detailed-card .btn {
+            width: 100%;
+            margin-top: 18px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .service-detailed-card .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(240, 54, 30, 0.35);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .services-detailed-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding: 60px 0;
+            }
+
+            .service-detailed-card {
+                padding: 32px 24px;
+            }
+
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .service-icon {
+                margin-right: 0;
+                margin-bottom: 18px;
+            }
+
+            .service-title {
+                min-height: auto;
+                justify-content: center;
+                font-size: 1.55rem;
+            }
+
+            .service-description {
+                padding-left: 10px;
+            }
+        }
+
+        /* Desktop Alignment */
+        @media (min-width: 769px) {
+            .service-header {
+                align-items: center;
+            }
+
+            .service-title {
+                align-items: center;
+            }
+        }
+
+        /* Process Timeline Section - Improved Responsive Version */
+        .process-section {
+            padding: 100px 0;
+            background: rgba(15, 23, 33, 0.7);
+            position: relative;
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 0 20px;
+        }
+
+        /* Main Timeline Line - Horizontal for mobile, Vertical for desktop */
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            background: linear-gradient(to right,
+                    transparent 0%,
+                    var(--primary-accent) 20%,
+                    var(--primary-accent) 80%,
+                    transparent 100%);
+            animation: timelineFlow 4s ease-in-out infinite;
+        }
+
+        /* Timeline forming animation */
+        @keyframes timelineFlow {
+
+            0%,
+            100% {
+                background-size: 0% 100%;
+            }
+
+            50% {
+                background-size: 100% 100%;
+            }
+        }
+
+        @keyframes timelineGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(240, 54, 30, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(240, 54, 30, 0.7);
+            }
+        }
+
+        .process-steps-container {
+            display: grid;
+            gap: 40px;
+            position: relative;
+        }
+
+        .process-step {
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: stepReveal 0.8s ease forwards;
+            transition: all 0.4s ease;
+        }
+
+        /* Staggered animation delays */
+        .process-step:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .process-step:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .process-step:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .process-step:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes stepReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-content {
+            background: linear-gradient(135deg, rgba(46, 67, 81, 0.4) 0%, rgba(15, 23, 33, 0.7) 100%);
+            padding: 35px 30px;
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg,
+                    transparent 0%,
+                    rgba(240, 54, 30, 0.05) 50%,
+                    transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-dark);
+            border: 3px solid var(--primary-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-light);
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-number::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(from 0deg,
+                    transparent 0deg,
+                    rgba(240, 54, 30, 0.3) 60deg,
+                    transparent 120deg,
+                    rgba(46, 67, 81, 0.3) 180deg,
+                    transparent 240deg,
+                    rgba(240, 54, 30, 0.3) 300deg,
+                    transparent 360deg);
+            border-radius: 50%;
+            animation: rotate 6s linear infinite paused;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--primary-light);
+            background: linear-gradient(45deg, var(--primary-light), var(--primary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding-left: 15px;
+            border-left: 2px solid rgba(240, 54, 30, 0.2);
+        }
+
+        /* Hover Effects */
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-step:hover .step-content {
+            transform: translateY(-8px);
+            border-color: rgba(240, 54, 30, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(240, 54, 30, 0.15);
+        }
+
+        .process-step:hover .step-content::before {
+            opacity: 1;
+        }
+
+        .process-step:hover .step-number {
+            background: var(--primary-accent);
+            transform: scale(1.1);
+            box-shadow: 0 0 0 6px rgba(240, 54, 30, 0.2),
+                0 0 30px rgba(240, 54, 30, 0.4);
+        }
+
+        .process-step:hover .step-number::before {
+            animation-play-state: running;
+        }
+
+        .process-step:hover .step-title {
+            background: linear-gradient(45deg, var(--primary-accent), #ff6b4a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .process-step:hover .step-description {
+            color: rgba(255, 255, 255, 0.95);
+            border-left-color: rgba(240, 54, 30, 0.5);
+            transform: translateX(5px);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Desktop Layout (3 columns) */
+        @media (min-width: 1200px) {
+            .process-steps-container {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto auto;
+                gap: 50px 30px;
+            }
+
+            .process-step:nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .process-step:nth-child(2) {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .process-step:nth-child(3) {
+                grid-column: 3;
+                grid-row: 1;
+            }
+
+            .process-step:nth-child(4) {
+                grid-column: 2;
+                grid-row: 2;
+                margin-top: 20px;
+            }
+
+            .process-timeline::before {
+                top: 50%;
+                left: 0;
+                right: 0;
+                height: 3px;
+                transform: translateY(-50%);
+            }
+        }
+
+        /* Tablet Layout (2 columns) */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .process-steps-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px 30px;
+            }
+
+            .process-step:nth-child(4) {
+                grid-column: 1 / -1;
+                justify-self: center;
+                max-width: 400px;
+            }
+
+            .process-timeline::before {
+                display: none;
+                /* Simplified for tablet */
+            }
+        }
+
+        /* Mobile Layout (1 column) */
+        @media (max-width: 767px) {
+            .process-steps-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .process-timeline {
+                margin: 60px auto 0;
+                padding: 0 15px;
+            }
+
+            .step-content {
+                padding: 30px 25px;
+            }
+
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .step-description {
+                padding-left: 12px;
+                border-left-width: 1px;
+            }
+
+            .process-timeline::before {
+                display: none;
+                /* Simplified for mobile */
+            }
+        }
+
+        /* Connection Lines for Desktop */
+        @media (min-width: 1200px) {
+            .process-step::before {
+                content: '';
+                position: absolute;
+                background: var(--primary-accent);
+                transition: all 0.4s ease;
+                z-index: -1;
+            }
+
+            .process-step:nth-child(1)::before,
+            .process-step:nth-child(2)::before,
+            .process-step:nth-child(3)::before {
+                bottom: -25px;
+                height: 25px;
+                width: 3px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .process-step:nth-child(4)::before {
+                top: -25px;
+                height: 25px;
+                width: 3px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .process-step:hover::before {
+                background: var(--primary-light);
+                box-shadow: 0 0 15px rgba(240, 54, 30, 0.6);
+            }
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            object-fit: contain;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    border-radius: 50px;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-text {
+    white-space: nowrap;
+}
+
+.whatsapp-float:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    color: white;
+}
+
+/* Hide text on mobile, show only icon */
+@media (max-width: 768px) {
+    .whatsapp-text {
+        display: none;
+    }
+    .whatsapp-float {
+        padding: 15px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Animation for attention */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.whatsapp-float {
+    animation: pulse 2s infinite;
+}
+
+/* Facebook Float Button */
+.facebook-float {
+    position: fixed;
+    bottom: 90px; /* Position above WhatsApp button */
+    right: 25px;
+    background: #1877F2;
+    color: white;
+    border-radius: 50px;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(24, 119, 242, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.facebook-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.facebook-text {
+    white-space: nowrap;
+}
+
+.facebook-float:hover {
+    background: #166FE5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(24, 119, 242, 0.4);
+    color: white;
+}
+
+/* Hide text on mobile, show only icon */
+@media (max-width: 768px) {
+    .facebook-text {
+        display: none;
+    }
+    .facebook-float {
+        padding: 15px;
+        bottom: 80px; /* Adjust for mobile */
+        right: 20px;
+    }
+}
+
+/* Animation for attention */
+.facebook-float {
+    animation: pulse 2s infinite 0.5s; /* Staggered animation */
+}
+
+/* Stacked layout */
+.whatsapp-float {
+    bottom: 25px;
+    right: 25px;
+}
+
+.facebook-float {
+    bottom: 90px; /* 65px gap between buttons */
+    right: 25px;
+}
+
+/* Mobile stacked layout */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .facebook-float {
+        bottom: 80px; /* 60px gap on mobile */
+        right: 20px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="particles-container" id="particles-js"></div>
+        <div class="light-beam"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <div class="logo-container">
+                        <img src="images/logo/logo.png" alt="Qytona Logo" class="logo-image">
+                        <span class="logo-text">QYTONA</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </div>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link active">Services</a>
+                </div>
+                <div class="nav-item">
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Our Services</h1>
+            <p class="page-subtitle">Comprehensive digital solutions for your business</p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="services-detailed-grid">
+                <div class="service-detailed-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-bg"></div>
+                            <span class="icon-text">WD</span>
+                        </div>
+                        <h2 class="service-title">Web Development</h2>
+                    </div>
+                    <p class="service-description">We build responsive, high-performance websites and web applications
+                        using the latest technologies and best practices.</p>
+                    <ul class="service-features">
+                        <li>Custom Web Applications</li>
+                        <li>E-commerce Solutions</li>
+                        <li>Progressive Web Apps</li>
+                        <li>API Development</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                    <div class="service-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <!-- <div class="service-detailed-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-bg"></div>
+                            <span class="icon-text">UI/UX</span>
+                        </div>
+                        <h2 class="service-title">UI/UX Design</h2>
+                    </div>
+                    <p class="service-description">We create intuitive and engaging user experiences that drive conversions and enhance user satisfaction.</p>
+                    <ul class="service-features">
+                        <li>User Research & Testing</li>
+                        <li>Wireframing & Prototyping</li>
+                        <li>Visual Design Systems</li>
+                        <li>Interaction Design</li>
+                        <li>Design Systems</li>
+                    </ul>
+                    <div class="service-tech">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Adobe XD</span>
+                        <span class="tech-tag">Sketch</span>
+                        <span class="tech-tag">InVision</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div> -->
+
+                <div class="service-detailed-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-bg"></div>
+                            <span class="icon-text">DM</span>
+                        </div>
+                        <h2 class="service-title">Digital Marketing</h2>
+                    </div>
+                    <p class="service-description">We develop data-driven marketing strategies to increase your online
+                        visibility and drive business growth.</p>
+                    <ul class="service-features">
+                        <li>SEO Optimization</li>
+                        <li>Content Marketing</li>
+                        <li>Social Media Management</li>
+                        <li>PPC Advertising</li>
+                        <li>Analytics & Reporting</li>
+                    </ul>
+                    <div class="service-tech">
+                        <span class="tech-tag">Google Ads</span>
+                        <span class="tech-tag">Meta</span>
+                        <span class="tech-tag">Google Analytics</span>
+                        <span class="tech-tag">SEMrush</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <div class="service-detailed-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-bg"></div>
+                            <span class="icon-text">BS</span>
+                        </div>
+                        <h2 class="service-title">Brand Strategy</h2>
+                    </div>
+                    <p class="service-description">We help define and communicate your brand identity to create
+                        meaningful connections with your audience.</p>
+                    <ul class="service-features">
+                        <li>Brand Identity Design</li>
+                        <li>Market Research</li>
+                        <li>Competitive Analysis</li>
+                        <li>Brand Guidelines</li>
+                        <li>Content Strategy</li>
+                    </ul>
+                    <div class="service-tech">
+                        <span class="tech-tag">Strategy</span>
+                        <span class="tech-tag">Research</span>
+                        <span class="tech-tag">Design</span>
+                        <span class="tech-tag">Content</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <div class="process-timeline">
+                <div class="process-steps-container">
+                    <div class="process-step">
+                        <div class="step-content">
+                            <div class="step-header">
+                                <div class="step-number">01</div>
+                                <h3 class="step-title">Discovery</h3>
+                            </div>
+                            <p class="step-description">We begin by understanding your business goals, target audience,
+                                and project requirements through in-depth consultations and research.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-content">
+                            <div class="step-header">
+                                <div class="step-number">02</div>
+                                <h3 class="step-title">Strategy</h3>
+                            </div>
+                            <p class="step-description">We develop a comprehensive strategy tailored to your specific
+                                needs, objectives, and budget constraints.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-content">
+                            <div class="step-header">
+                                <div class="step-number">03</div>
+                                <h3 class="step-title">Execution</h3>
+                            </div>
+                            <p class="step-description">Our team brings your vision to life with precision and attention
+                                to detail, using agile methodologies for optimal results.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-content">
+                            <div class="step-header">
+                                <div class="step-number">04</div>
+                                <h3 class="step-title">Delivery</h3>
+                            </div>
+                            <p class="step-description">We launch your project and provide ongoing support and
+                                optimization to ensure continued success and growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Your Project?</h2>
+                <p class="cta-description">Let's discuss how we can help bring your digital vision to life.</p>
+                <a href="contact.html" class="btn btn-primary btn-large">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-container">
+                        <div class="logo-icon">Q</div>
+                        <span class="logo-text">QYTONA</span>
+                    </div>
+                    <p class="footer-slogan">Shaping Your Digital Tomorrow</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">tw</a>
+                        <a href="#" class="social-link">fb</a>
+                        <a href="#" class="social-link">ig</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Explore</h3>
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                        <a href="portfolio.html" class="footer-link">Portfolio</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Services</h3>
+                        <a href="services.html" class="footer-link">Web Development</a>
+                        <!-- <a href="services.html" class="footer-link">UI/UX Design</a> -->
+                        <a href="services.html" class="footer-link">Digital Marketing</a>
+                        <a href="services.html" class="footer-link">E-commerce</a>
+                        <a href="services.html" class="footer-link">Brand Strategy</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Contact</h3>
+                        <p class="footer-contact">contact@qytona.com</p>
+                        <p class="footer-contact">+94 70 421 9008</p>
+                        <!-- <p class="footer-contact">Digital Avenue, Tech City</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 Qytona. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+        <!-- WhatsApp Float Button -->
+<a href="https://wa.me/+94704219008" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <div class="whatsapp-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.26-6.189-3.548-8.452"/>
+        </svg>
+    </div>
+    <span class="whatsapp-text">Chat with us</span>
+</a>
+
+<!-- Facebook Float Button -->
+<a href="https://www.facebook.com/share/1DbFM9kfrv/" class="facebook-float" target="_blank" rel="noopener noreferrer">
+    <div class="facebook-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+    </div>
+    <span class="facebook-text">Follow us</span>
+</a>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Add to main.js or services page
+        document.addEventListener('DOMContentLoaded', function () {
+            const processSteps = document.querySelectorAll('.process-step');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const step = entry.target;
+                        step.style.animationPlayState = 'running';
+
+                        // Add connection line animation
+                        const connectionLine = step.querySelector('.step-number');
+                        if (connectionLine) {
+                            connectionLine.style.animationDelay = '0.5s';
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.3,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            processSteps.forEach(step => {
+                step.style.animationPlayState = 'paused';
+                observer.observe(step);
+            });
+        });
+    </script>
+</body>
+
+</html>
